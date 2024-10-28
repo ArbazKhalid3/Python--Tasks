@@ -1,0 +1,77 @@
+# Implement DFS iteratively using a stack
+def dfs_iterative(graph, start, visited):
+    stack = [start]
+    
+    while stack:
+        node = stack.pop()
+        if node not in visited:
+            visited.add(node)
+            print(node)
+            for neighbor in graph[node]:
+                if neighbor not in visited:
+                    stack.append(neighbor)
+
+# Count the number of connected components
+def count_connected_components(graph):
+    visited = set()
+    count = 0
+    
+    for node in graph:
+        if node not in visited:
+            dfs_iterative(graph, node, visited)
+            count += 1
+            
+    return count
+
+# Program to perform DFS recursively
+def dfs(graph, start):
+    visited = set()
+    
+    def dfs_helper(node):
+        visited.add(node)
+        print(node, end=" ")
+        for neighbor in graph[node]:
+            if neighbor not in visited:
+                dfs_helper(neighbor)
+                
+    dfs_helper(start)
+
+# Example usage
+graph = {
+    0: [1, 2],
+    1: [0, 3],
+    2: [0, 4],
+    3: [1],
+    4: [2]
+}
+
+print("DFS (recursive):")
+dfs(graph, 0)
+
+print("\nDFS (iterative) and count of connected components:")
+count_connected_components(graph)
+
+print("bfs")
+#impement bfs
+def bfs(graph, start):
+    queue = [start]
+    visited = set()
+
+    while queue:
+        node = queue.pop(0)
+        if node not in visited:
+            visited.add(node)
+            print(node)
+            for neighbor in graph[node]:
+                if neighbor not in visited:
+                    queue.append(neighbor)
+                    
+#example uasge
+graph={
+0: [1,2],
+1: [0,3],
+2: [0,4],
+3: [1],
+4: [2],
+}
+bfs(graph,0)
