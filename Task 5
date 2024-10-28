@@ -1,0 +1,69 @@
+Q1:
+Code:
+# Initialize an empty stack
+stack = []
+
+# Function to push an element onto the stack
+def push(item):
+    
+    stack.append(item)
+
+# Function to pop an element from the stack
+def pop():
+    if stack:  # Check if stack is not empty
+        item = stack[-1]  # Get the top item
+        del stack[-1]  # Remove the top item
+        return item
+    else:
+        return None
+
+print("pushing item")
+push('10')
+push('20')
+push('30')
+print(stack)
+print("Popping items:")
+pop()
+pop()
+pop()
+pop()
+print(stack)
+
+Q2:
+Code:
+# Initialize an empty queue (array)
+queue = []
+
+# Function to enqueue an element to the queue
+def enqueue(item):
+    queue.append(item)
+
+
+# Function to dequeue an element from the queue
+def dequeue():
+    if not queue:  # Check if the queue is empty
+        print("Empty Queue")
+        return None
+    else:
+        item = queue.pop(0)  # Remove the first element
+
+
+
+
+# Example usage
+print("enqued")
+enqueue('a')
+enqueue('b')
+enqueue('c')
+
+print(queue)
+
+
+print("\nElements dequeued from queue")
+dequeue()
+dequeue()
+dequeue()
+print(queue)
+
+dequeue()  # This will show an error message since the queue will be empty.
+
