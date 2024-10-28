@@ -1,0 +1,66 @@
+Q1:
+import numpy as np
+
+# Create a NumPy array
+original_array = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15])
+
+# Split the array into 3 equal parts
+arrays = np.array_split(original_array, 3)
+
+# Calculate the sum of all numbers in each array
+sums = [np.sum(arr) for arr in arrays]
+
+print("Arrays after splitting:")
+for i, arr in enumerate(arrays):
+    print(f"Array {i + 1}: {arr}, Sum: {sums[i]}")
+Q2:
+# Create a NumPy array
+num_array = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15])
+
+# Extract numbers greater than 5 and less than 15
+filtered_numbers = num_array[(num_array > 5) & (num_array < 15)]
+
+print("\nNumbers greater than 5 and less than 15:")
+print(filtered_numbers)
+
+Q3:
+# Set 1: Even numbers (0-10)
+set1 = {0, 2, 4, 6, 8, 10}
+
+# Set 2: Positive integers (1-10) using constructor
+set2 = set(range(1, 11))
+
+# a) Remove second and fifth elements of set2 (1-based indexing)
+set2_list = list(set2)
+if len(set2_list) >= 5:
+    del set2_list[1]  # Remove second element (index 1)
+    del set2_list[3]  # Remove fifth element (index 4)
+set2 = set(set2_list)
+
+print("\nSet 1:", set1)
+print("Set 2 after removals:", set2)
+
+# b) Set 3: Intersection of set2 and set1
+set3 = set1.intersection(set2)
+
+print("Set 3 (Intersection of Set 1 and Set 2):", set3)
+
+
+
+Q4:
+# Create a dictionary named "students"
+students = {
+    "001": {"sapId": "001", "name": "Alice", "age": 20, "Semester": "Six"},
+    "002": {"sapId": "002", "name": "Bob", "age": 21, "Semester": "Six"},
+    "003": {"sapId": "003", "name": "Charlie", "age": 22, "Semester": "Six"},
+    "004": {"sapId": "004", "name": "David", "age": 23, "Semester": "Six"},
+    "005": {"sapId": "005", "name": "Eve", "age": 24, "Semester": "Six"},
+}
+
+# Update the Semester from "Six" to "Seven"
+for student in students.values():
+    student["Semester"] = "Seven"
+
+print("\nUpdated Students Dictionary:")
+for sapId, info in students.items():
+    print(f"SAP ID: {sapId}, Record: {info}")
